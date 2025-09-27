@@ -1,17 +1,33 @@
-    <script setup>
-    import { useRouter } from 'vue-router';
-    const router = useRouter();
+<script setup>
+import { ref } from "vue";
+import Modal from "../components/modal.vue";
+import { useRouter } from "vue-router";
 
-    const goToWhatsApp = (product) => {
-        const phoneNumber = '+50376289891';
-        const message = `Hola, estoy interesado en el siguiente producto de su catálogo:\n\n` +
-            `Nombre: ${product.name}\n` +
-            `Descripción: ${product.description}\n` +
-            `Precio: ${product.price}\n\n` +
-            `¿Podría darme más información?`;
-        const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-        window.open(url, '_blank');
-    };
+const router = useRouter();
+
+const showModal = ref(false);
+const selectedImage = ref(null);
+
+const openImageModal = (src) => {
+    selectedImage.value = src;
+    showModal.value = true;
+};
+
+const closeImageModal = () => {
+    showModal.value = false;
+    selectedImage.value = null;
+};
+
+const goToWhatsApp = (product) => {
+    const phoneNumber = '+50376289891';
+    const message = `Hola, estoy interesado en el siguiente producto de su catálogo:\n\n` +
+        `Nombre: ${product.name}\n` +
+        `Descripción: ${product.description}\n` +
+        `Precio: ${product.price}\n\n` +
+        `¿Podría darme más información?`;
+    const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(url, '_blank');
+};
 </script>
 
 <template>
@@ -26,7 +42,8 @@
             <h2>Ramos de flores</h2>
             <div class="product-list" v-if="true">
                 <div class="product-item" v-if="true">
-                    <img src="/public/Productos/ramo1.jpg" alt="Ramo de flores 1">
+                    <img src="/Productos/ramo1.jpg" alt="Ramo de flores 1"
+                        @click="openImageModal('/Productos/ramo1.jpg')" style="cursor: pointer;" />
                     <h2>Ramo Amarillo</h2>
                     <p>Descripción del producto 1</p>
                     <p>$10.00</p>
@@ -34,7 +51,8 @@
                         @click="goToWhatsApp({ name: 'Ramo Amarillo', description: 'Descripción del ramo amarillo', price: '$10.00' })">Pedir</button>
                 </div>
                 <div class="product-item">
-                    <img src="/public/Productos/ramo2.jpg" alt="Ramo de flores 2">
+                    <img src="/Productos/ramo2.jpg" alt="Ramo de flores 2"
+                        @click="openImageModal('/Productos/ramo2.jpg')" style="cursor: pointer;" />
                     <h2>Ramo Rosa</h2>
                     <p>Descripción del producto 2</p>
                     <p>$20.00</p>
@@ -42,7 +60,8 @@
                         @click="goToWhatsApp({ name: 'Ramo Rosa', description: 'Descripción del ramo rosa', price: '$20.00' })">Pedir</button>
                 </div>
                 <div class="product-item">
-                    <img src="/public/Productos/ramo3.jpg" alt="Ramo de flores 3">
+                    <img src="/Productos/ramo3.jpg" alt="Ramo de flores 3"
+                        @click="openImageModal('/Productos/ramo3.jpg')" style="cursor: pointer;" />
                     <h2>Ramo Blanco</h2>
                     <p>Descripción del producto 3</p>
                     <p>$30.00</p>
@@ -54,7 +73,9 @@
             <div class="product-list" v-if="true">
                 <div class="product-item" v-if="true">
                     <img src="https://coffective.com/wp-content/uploads/2018/06/default-featured-image.png.jpg"
-                        alt="Producto 1">
+                        alt="Producto 1"
+                        @click="openImageModal('https://coffective.com/wp-content/uploads/2018/06/default-featured-image.png.jpg')"
+                        style="cursor: pointer;" />
                     <h2>Producto 1</h2>
                     <p>Descripción del producto 1</p>
                     <p>$10.00</p>
@@ -175,6 +196,9 @@
 
             </div>
         </main>
+        <Modal :show="showModal" @close="closeImageModal">
+            <img :src="selectedImage" alt="Imagen seleccionada" />
+        </Modal>
     </div>
 </template>
 
@@ -295,7 +319,9 @@ main>h2 {
 .product-item img {
     width: 100%;
     height: auto;
+    max-height: 300px;
     border-radius: 10px;
+    object-fit: cover;
 }
 
 .btn {
@@ -310,6 +336,12 @@ main>h2 {
     text-transform: uppercase;
 }
 
+.modal img {
+    max-width: 100%;
+    max-height: 80vh;
+    border-radius: 8px;
+}
+
 @media (max-width: 600px) {
     .product-list {
         justify-content: center;
@@ -318,6 +350,10 @@ main>h2 {
 
     .product-item {
         width: 100%;
+    }
+
+    .modal img {
+        max-height: 60vh;
     }
 }
 
@@ -329,6 +365,10 @@ main>h2 {
 
     .product-item {
         width: 100%;
+    }
+
+    .modal img {
+        max-height: 70vh;
     }
 }
 
