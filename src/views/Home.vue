@@ -52,6 +52,130 @@
                         @click="goToWhatsApp({ name: 'Producto 3', description: 'Descripción del producto 3', price: '$30.00' })">Pedir</button>
                 </div>
             </div>
+            <h2>Arreglos Personalizados</h2>
+            <div class="product-list" v-if="true">
+                <div class="product-item" v-if="true">
+                    <img src="https://coffective.com/wp-content/uploads/2018/06/default-featured-image.png.jpg"
+                        alt="Producto 1">
+                    <h2>Producto 1</h2>
+                    <p>Descripción del producto 1</p>
+                    <p>$10.00</p>
+                    <button class="btn"
+                        @click="goToWhatsApp({ name: 'Producto 1', description: 'Descripción del producto 1', price: '$10.00' })">Pedir</button>
+                </div>
+                <div class="product-item">
+                    <img src="https://coffective.com/wp-content/uploads/2018/06/default-featured-image.png.jpg"
+                        alt="Producto 2">
+                    <h2>Producto 2</h2>
+                    <p>Descripción del producto 2</p>
+                    <p>$20.00</p>
+                    <button class="btn"
+                        @click="goToWhatsApp({ name: 'Producto 2', description: 'Descripción del producto 2', price: '$20.00' })">Pedir</button>
+                </div>
+                <div class="product-item">
+                    <img src="https://coffective.com/wp-content/uploads/2018/06/default-featured-image.png.jpg"
+                        alt="Producto 3">
+                    <h2>Producto 3</h2>
+                    <p>Descripción del producto 3</p>
+                    <p>$30.00</p>
+                    <button class="btn"
+                        @click="goToWhatsApp({ name: 'Producto 3', description: 'Descripción del producto 3', price: '$30.00' })">Pedir</button>
+                </div>
+
+            </div>
+            <h2>Carritos HotWheels</h2>
+            <div class="product-list" v-if="true">
+                <div class="product-item" v-if="true">
+                    <img src="https://coffective.com/wp-content/uploads/2018/06/default-featured-image.png.jpg"
+                        alt="Producto 1">
+                    <h2>Producto 1</h2>
+                    <p>Descripción del producto 1</p>
+                    <p>$10.00</p>
+                    <button class="btn"
+                        @click="goToWhatsApp({ name: 'Producto 1', description: 'Descripción del producto 1', price: '$10.00' })">Pedir</button>
+                </div>
+                <div class="product-item">
+                    <img src="https://coffective.com/wp-content/uploads/2018/06/default-featured-image.png.jpg"
+                        alt="Producto 2">
+                    <h2>Producto 2</h2>
+                    <p>Descripción del producto 2</p>
+                    <p>$20.00</p>
+                    <button class="btn"
+                        @click="goToWhatsApp({ name: 'Producto 2', description: 'Descripción del producto 2', price: '$20.00' })">Pedir</button>
+                </div>
+                <div class="product-item">
+                    <img src="https://coffective.com/wp-content/uploads/2018/06/default-featured-image.png.jpg"
+                        alt="Producto 3">
+                    <h2>Producto 3</h2>
+                    <p>Descripción del producto 3</p>
+                    <p>$30.00</p>
+                    <button class="btn"
+                        @click="goToWhatsApp({ name: 'Producto 3', description: 'Descripción del producto 3', price: '$30.00' })">Pedir</button>
+                </div>
+
+            </div>
+            <h2>Peluches</h2>
+            <div class="product-list" v-if="true">
+                <div class="product-item" v-if="true">
+                    <img src="https://coffective.com/wp-content/uploads/2018/06/default-featured-image.png.jpg"
+                        alt="Producto 1">
+                    <h2>Producto 1</h2>
+                    <p>Descripción del producto 1</p>
+                    <p>$10.00</p>
+                    <button class="btn"
+                        @click="goToWhatsApp({ name: 'Producto 1', description: 'Descripción del producto 1', price: '$10.00' })">Pedir</button>
+                </div>
+                <div class="product-item">
+                    <img src="https://coffective.com/wp-content/uploads/2018/06/default-featured-image.png.jpg"
+                        alt="Producto 2">
+                    <h2>Producto 2</h2>
+                    <p>Descripción del producto 2</p>
+                    <p>$20.00</p>
+                    <button class="btn"
+                        @click="goToWhatsApp({ name: 'Producto 2', description: 'Descripción del producto 2', price: '$20.00' })">Pedir</button>
+                </div>
+                <div class="product-item">
+                    <img src="https://coffective.com/wp-content/uploads/2018/06/default-featured-image.png.jpg"
+                        alt="Producto 3">
+                    <h2>Producto 3</h2>
+                    <p>Descripción del producto 3</p>
+                    <p>$30.00</p>
+                    <button class="btn"
+                        @click="goToWhatsApp({ name: 'Producto 3', description: 'Descripción del producto 3', price: '$30.00' })">Pedir</button>
+                </div>
+
+            </div>
+            <h2>Accesorios</h2>
+            <div class="product-list" v-if="true">
+                <div class="product-item" v-if="true">
+                    <img src="https://coffective.com/wp-content/uploads/2018/06/default-featured-image.png.jpg"
+                        alt="Producto 1">
+                    <h2>Producto 1</h2>
+                    <p>Descripción del producto 1</p>
+                    <p>$10.00</p>
+                    <button class="btn"
+                        @click="goToWhatsApp({ name: 'Producto 1', description: 'Descripción del producto 1', price: '$10.00' })">Pedir</button>
+                </div>
+                <div class="product-item">
+                    <img src="https://coffective.com/wp-content/uploads/2018/06/default-featured-image.png.jpg"
+                        alt="Producto 2">
+                    <h2>Producto 2</h2>
+                    <p>Descripción del producto 2</p>
+                    <p>$20.00</p>
+                    <button class="btn"
+                        @click="goToWhatsApp({ name: 'Producto 2', description: 'Descripción del producto 2', price: '$20.00' })">Pedir</button>
+                </div>
+                <div class="product-item">
+                    <img src="https://coffective.com/wp-content/uploads/2018/06/default-featured-image.png.jpg"
+                        alt="Producto 3">
+                    <h2>Producto 3</h2>
+                    <p>Descripción del producto 3</p>
+                    <p>$30.00</p>
+                    <button class="btn"
+                        @click="goToWhatsApp({ name: 'Producto 3', description: 'Descripción del producto 3', price: '$30.00' })">Pedir</button>
+                </div>
+
+            </div>
         </main>
     </div>
 </template>
