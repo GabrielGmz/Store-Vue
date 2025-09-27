@@ -1,3 +1,7 @@
-module.exports = {
-  publicPath: process.env.NODE_ENV === 'production' ? '/vue-github-pages-demo/' : '/',
-}
+import { defineConfig } from 'vite'
+import vue from '@vitejs/plugin-vue'
+
+export default defineConfig({
+  plugins: [vue()],
+  base: '/Store-Vue/',
+})
