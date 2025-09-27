@@ -200,6 +200,9 @@ const goToWhatsApp = (product) => {
             <img :src="selectedImage" alt="Imagen seleccionada" />
         </Modal>
     </div>
+    <footer>
+        <p>&copy; 2025 World of Varieties.</p>
+    </footer>
 </template>
 
 <style scoped>
@@ -286,12 +289,12 @@ main>h2 {
     padding-left: 10px;
     font-weight: 800;
     font-size: 22px;
-    background: linear-gradient(90deg, rgb(251, 0, 201) 0%, rgb(255, 44, 195) 35%, rgb(0, 0, 0) 100%);
+    background: linear-gradient(90deg, rgb(204, 34, 170) 0%, rgb(255, 0, 183) 35%, rgb(0, 0, 0) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     color: transparent;
-    text-shadow: 1px 1px 2px rgba(255, 0, 225, 0.782);
+    text-shadow: 1px 1px 2px rgba(255, 0, 225, 0.574);
     letter-spacing: 1px;
 }
 
@@ -340,6 +343,20 @@ main>h2 {
     max-width: 100%;
     max-height: 80vh;
     border-radius: 8px;
+}
+
+footer {
+    background-color: #ffffff;
+    text-align: center;
+    padding: 15px;
+    color: #ff00d4;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
 }
 
 @media (max-width: 600px) {
