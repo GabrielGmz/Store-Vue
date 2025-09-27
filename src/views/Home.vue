@@ -1,6 +1,7 @@
     <script setup>
     import { useRouter } from 'vue-router';
     const router = useRouter();
+
     const goToWhatsApp = (product) => {
         const phoneNumber = '+50376289891';
         const message = `Hola, estoy interesado en el siguiente producto de su catálogo:\n\n` +
@@ -25,31 +26,28 @@
             <h2>Ramos de flores</h2>
             <div class="product-list" v-if="true">
                 <div class="product-item" v-if="true">
-                    <img src="https://coffective.com/wp-content/uploads/2018/06/default-featured-image.png.jpg"
-                        alt="Producto 1">
-                    <h2>Producto 1</h2>
+                    <img src="/public/Productos/ramo1.jpg" alt="Ramo de flores 1">
+                    <h2>Ramo Amarillo</h2>
                     <p>Descripción del producto 1</p>
                     <p>$10.00</p>
                     <button class="btn"
-                        @click="goToWhatsApp({ name: 'Producto 1', description: 'Descripción del producto 1', price: '$10.00' })">Pedir</button>
+                        @click="goToWhatsApp({ name: 'Ramo Amarillo', description: 'Descripción del ramo amarillo', price: '$10.00' })">Pedir</button>
                 </div>
                 <div class="product-item">
-                    <img src="https://coffective.com/wp-content/uploads/2018/06/default-featured-image.png.jpg"
-                        alt="Producto 2">
-                    <h2>Producto 2</h2>
+                    <img src="/public/Productos/ramo2.jpg" alt="Ramo de flores 2">
+                    <h2>Ramo Rosa</h2>
                     <p>Descripción del producto 2</p>
                     <p>$20.00</p>
                     <button class="btn"
-                        @click="goToWhatsApp({ name: 'Producto 2', description: 'Descripción del producto 2', price: '$20.00' })">Pedir</button>
+                        @click="goToWhatsApp({ name: 'Ramo Rosa', description: 'Descripción del ramo rosa', price: '$20.00' })">Pedir</button>
                 </div>
                 <div class="product-item">
-                    <img src="https://coffective.com/wp-content/uploads/2018/06/default-featured-image.png.jpg"
-                        alt="Producto 3">
-                    <h2>Producto 3</h2>
+                    <img src="/public/Productos/ramo3.jpg" alt="Ramo de flores 3">
+                    <h2>Ramo Blanco</h2>
                     <p>Descripción del producto 3</p>
                     <p>$30.00</p>
                     <button class="btn"
-                        @click="goToWhatsApp({ name: 'Producto 3', description: 'Descripción del producto 3', price: '$30.00' })">Pedir</button>
+                        @click="goToWhatsApp({ name: 'Ramo Blanco', description: 'Descripción del ramo blanco', price: '$30.00' })">Pedir</button>
                 </div>
             </div>
             <h2>Arreglos Personalizados</h2>
