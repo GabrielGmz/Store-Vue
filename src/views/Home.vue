@@ -286,6 +286,11 @@ main > h2 {
   .modal img {
     max-height: 60vh;
   }
+
+  .soon {
+    font-size: 20px;
+    padding: 20px;
+  }
 }
 
 @media (min-width: 601px) and (max-width: 900px) {
@@ -300,6 +305,10 @@ main > h2 {
 
   .modal img {
     max-height: 70vh;
+  }
+  .soon {
+    font-size: 22px;
+    padding: 25px;
   }
 }
 
