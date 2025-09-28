@@ -2,8 +2,9 @@
 import { ref } from 'vue'
 import Modal from '../components/modal.vue'
 import Card from '@/components/Card.vue'
-import Footer from '@/components/footer.vue'
+
 import Navbar from '@/components/Navbar.vue'
+import Footer from '@/components/Footer.vue'
 
 const showModal = ref(false)
 const selectedImage = ref(null)
