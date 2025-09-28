@@ -215,27 +215,16 @@ const products_flowers = ref([
   width: 100%;
   font-size: 24px;
   letter-spacing: 1px;
-  animation: scrollY 15s linear infinite;
+  animation: moverY 0.8s infinite;
 }
 
-@keyframes scrollY {
-  0% {
-    transform: translateX(100%);
-    opacity: 0;
-  }
-  10% {
-    opacity: 1;
+@keyframes moverY {
+  0%,
+  100% {
+    transform: translateY(0);
   }
   50% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-  90% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateX(-100%);
-    opacity: 0;
+    transform: translateY(-5px);
   }
 }
 
@@ -328,9 +317,10 @@ main > h2 {
   }
 
   .view > p {
-    font-size: 11px;
+    font-size: 12px;
     padding: 5px;
     text-align: center;
+    box-sizing: border-box;
   }
 }
 
