@@ -2,7 +2,6 @@
 import { ref } from 'vue'
 import Modal from '../components/modal.vue'
 import Card from '@/components/Card.vue'
-import Alert from '@/components/Alert.vue'
 
 import Navbar from '@/components/Navbar.vue'
 import Footer from '@/components/Footer.vue'
