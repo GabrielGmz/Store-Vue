@@ -1,397 +1,262 @@
 <script setup>
-import { ref } from "vue";
-import Modal from "../components/modal.vue";
-import { useRouter } from "vue-router";
+import { ref } from 'vue'
+import Modal from '../components/modal.vue'
+import Card from '@/components/Card.vue'
+import Footer from '@/components/footer.vue'
+import Navbar from '@/components/Navbar.vue'
 
-const router = useRouter();
-
-const showModal = ref(false);
-const selectedImage = ref(null);
+const showModal = ref(false)
+const selectedImage = ref(null)
 
 const openImageModal = (src) => {
-    selectedImage.value = src;
-    showModal.value = true;
-};
+  selectedImage.value = src
+  showModal.value = true
+}
 
 const closeImageModal = () => {
-    showModal.value = false;
-    selectedImage.value = null;
-};
+  showModal.value = false
+  selectedImage.value = null
+}
 
 const goToWhatsApp = (product) => {
-    const phoneNumber = '+50376289891';
-    const message = `Hola, estoy interesado en el siguiente producto de su catálogo:\n\n` +
-        `Nombre: ${product.name}\n` +
-        `Descripción: ${product.description}\n` +
-        `Precio: ${product.price}\n\n` +
-        `¿Podría darme más información?`;
-    const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-    window.open(url, '_blank');
-};
+  const phoneNumber = '+50376289891'
+  const message =
+    `Hola, estoy interesado en el siguiente producto de su catálogo:\n\n` +
+    `Nombre: ${product.name}\n` +
+    `Descripción: ${product.description}\n` +
+    `Precio: ${product.price}\n\n` +
+    `¿Podría darme más información?`
+  const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`
+  window.open(url, '_blank')
+}
+
+const products_flowers = ref([
+  {
+    name: 'Ramo Pink',
+    description: 'Descripción del ramo pink',
+    price: '$10.00',
+    image: '/Productos/ramo1.jpg',
+  },
+  {
+    name: 'Ramo Rosa',
+    description: 'Descripción del ramo rosa',
+    price: '$20.00',
+    image: '/Productos/ramo2.jpg',
+  },
+  {
+    name: 'Ramo Blanco',
+    description: 'Descripción del ramo blanco',
+    price: '$30.00',
+    image: '/Productos/ramo3.jpg',
+  },
+  {
+    name: 'Ramo Multicolor',
+    description: 'Descripción del ramo multicolor',
+    price: '$40.00',
+    image: '/Productos/ramo4.jpg',
+  },
+  {
+    name: 'Ramo Naranja',
+    description: 'Descripción del ramo naranja',
+    price: '$50.00',
+    image: '/Productos/ramo5.jpg',
+  },
+  {
+    name: 'Ramo Azul',
+    description: 'Descripción del ramo azul',
+    price: '$60.00',
+    image: '/Productos/ramo6.jpg',
+  },
+])
+
+const custom_arragements = ref([
+  {
+    name: 'Arreglo 1',
+    description: 'Descripción del arreglo 1',
+    price: '$15.00',
+    image: '/Productos/arreglo1.jpg',
+  },
+  {
+    name: 'Arreglo 2',
+    description: 'Descripción del arreglo 2',
+    price: '$25.00',
+    image: '/Productos/arreglo2.jpg',
+  },
+  {
+    name: 'Arreglo 3',
+    description: 'Descripción del arreglo 3',
+    price: '$35.00',
+    image: '/Productos/arreglo3.jpg',
+  },
+  {
+    name: 'Arreglo 4',
+    description: 'Descripción del arreglo 4',
+    price: '$45.00',
+    image: '/Productos/arreglo4.jpg',
+  },
+])
+
+const hotwheels = ref([
+  {
+    name: 'Hotwheel 1',
+    description: 'Descripción del hotwheel 1',
+    price: '$5.00',
+    image: '/Productos/hotwheel1.jpg',
+  },
+  {
+    name: 'Hotwheel 2',
+    description: 'Descripción del hotwheel 2',
+    price: '$10.00',
+    image: '/Productos/hotwheel2.jpg',
+  },
+  {
+    name: 'Hotwheel 3',
+    description: 'Descripción del hotwheel 3',
+    price: '$15.00',
+    image: '/Productos/hotwheel3.jpg',
+  },
+  {
+    name: 'Hotwheel 4',
+    description: 'Descripción del hotwheel 4',
+    price: '$20.00',
+    image: '/Productos/hotwheel4.jpg',
+  },
+])
 </script>
 
 <template>
-    <div class="view">
-        <nav class="navbar">
-            <ul>
-                <li><a href="#">World Of Varieties</a></li>
-            </ul>
-        </nav>
-        <main>
-            <h1>Catálogo</h1>
-            <h2>Ramos de flores</h2>
-            <div class="product-list" v-if="true">
-                <div class="product-item" v-if="true">
-                    <img src="/Productos/ramo1.jpg" alt="Ramo de flores 1"
-                        @click="openImageModal('/Productos/ramo1.jpg')" style="cursor: pointer;" />
-                    <h2>Ramo Amarillo</h2>
-                    <p>Descripción del producto 1</p>
-                    <p>$10.00</p>
-                    <button class="btn"
-                        @click="goToWhatsApp({ name: 'Ramo Amarillo', description: 'Descripción del ramo amarillo', price: '$10.00' })">Pedir</button>
-                </div>
-                <div class="product-item">
-                    <img src="/Productos/ramo2.jpg" alt="Ramo de flores 2"
-                        @click="openImageModal('/Productos/ramo2.jpg')" style="cursor: pointer;" />
-                    <h2>Ramo Rosa</h2>
-                    <p>Descripción del producto 2</p>
-                    <p>$20.00</p>
-                    <button class="btn"
-                        @click="goToWhatsApp({ name: 'Ramo Rosa', description: 'Descripción del ramo rosa', price: '$20.00' })">Pedir</button>
-                </div>
-                <div class="product-item">
-                    <img src="/Productos/ramo3.jpg" alt="Ramo de flores 3"
-                        @click="openImageModal('/Productos/ramo3.jpg')" style="cursor: pointer;" />
-                    <h2>Ramo Blanco</h2>
-                    <p>Descripción del producto 3</p>
-                    <p>$30.00</p>
-                    <button class="btn"
-                        @click="goToWhatsApp({ name: 'Ramo Blanco', description: 'Descripción del ramo blanco', price: '$30.00' })">Pedir</button>
-                </div>
-            </div>
-            <h2>Arreglos Personalizados</h2>
-            <div class="product-list" v-if="true">
-                <div class="product-item" v-if="true">
-                    <img src="https://coffective.com/wp-content/uploads/2018/06/default-featured-image.png.jpg"
-                        alt="Producto 1"
-                        @click="openImageModal('https://coffective.com/wp-content/uploads/2018/06/default-featured-image.png.jpg')"
-                        style="cursor: pointer;" />
-                    <h2>Producto 1</h2>
-                    <p>Descripción del producto 1</p>
-                    <p>$10.00</p>
-                    <button class="btn"
-                        @click="goToWhatsApp({ name: 'Producto 1', description: 'Descripción del producto 1', price: '$10.00' })">Pedir</button>
-                </div>
-                <div class="product-item">
-                    <img src="https://coffective.com/wp-content/uploads/2018/06/default-featured-image.png.jpg"
-                        alt="Producto 2">
-                    <h2>Producto 2</h2>
-                    <p>Descripción del producto 2</p>
-                    <p>$20.00</p>
-                    <button class="btn"
-                        @click="goToWhatsApp({ name: 'Producto 2', description: 'Descripción del producto 2', price: '$20.00' })">Pedir</button>
-                </div>
-                <div class="product-item">
-                    <img src="https://coffective.com/wp-content/uploads/2018/06/default-featured-image.png.jpg"
-                        alt="Producto 3">
-                    <h2>Producto 3</h2>
-                    <p>Descripción del producto 3</p>
-                    <p>$30.00</p>
-                    <button class="btn"
-                        @click="goToWhatsApp({ name: 'Producto 3', description: 'Descripción del producto 3', price: '$30.00' })">Pedir</button>
-                </div>
-
-            </div>
-            <h2>Carritos HotWheels</h2>
-            <div class="product-list" v-if="true">
-                <div class="product-item" v-if="true">
-                    <img src="https://coffective.com/wp-content/uploads/2018/06/default-featured-image.png.jpg"
-                        alt="Producto 1">
-                    <h2>Producto 1</h2>
-                    <p>Descripción del producto 1</p>
-                    <p>$10.00</p>
-                    <button class="btn"
-                        @click="goToWhatsApp({ name: 'Producto 1', description: 'Descripción del producto 1', price: '$10.00' })">Pedir</button>
-                </div>
-                <div class="product-item">
-                    <img src="https://coffective.com/wp-content/uploads/2018/06/default-featured-image.png.jpg"
-                        alt="Producto 2">
-                    <h2>Producto 2</h2>
-                    <p>Descripción del producto 2</p>
-                    <p>$20.00</p>
-                    <button class="btn"
-                        @click="goToWhatsApp({ name: 'Producto 2', description: 'Descripción del producto 2', price: '$20.00' })">Pedir</button>
-                </div>
-                <div class="product-item">
-                    <img src="https://coffective.com/wp-content/uploads/2018/06/default-featured-image.png.jpg"
-                        alt="Producto 3">
-                    <h2>Producto 3</h2>
-                    <p>Descripción del producto 3</p>
-                    <p>$30.00</p>
-                    <button class="btn"
-                        @click="goToWhatsApp({ name: 'Producto 3', description: 'Descripción del producto 3', price: '$30.00' })">Pedir</button>
-                </div>
-
-            </div>
-            <h2>Peluches</h2>
-            <div class="product-list" v-if="true">
-                <div class="product-item" v-if="true">
-                    <img src="https://coffective.com/wp-content/uploads/2018/06/default-featured-image.png.jpg"
-                        alt="Producto 1">
-                    <h2>Producto 1</h2>
-                    <p>Descripción del producto 1</p>
-                    <p>$10.00</p>
-                    <button class="btn"
-                        @click="goToWhatsApp({ name: 'Producto 1', description: 'Descripción del producto 1', price: '$10.00' })">Pedir</button>
-                </div>
-                <div class="product-item">
-                    <img src="https://coffective.com/wp-content/uploads/2018/06/default-featured-image.png.jpg"
-                        alt="Producto 2">
-                    <h2>Producto 2</h2>
-                    <p>Descripción del producto 2</p>
-                    <p>$20.00</p>
-                    <button class="btn"
-                        @click="goToWhatsApp({ name: 'Producto 2', description: 'Descripción del producto 2', price: '$20.00' })">Pedir</button>
-                </div>
-                <div class="product-item">
-                    <img src="https://coffective.com/wp-content/uploads/2018/06/default-featured-image.png.jpg"
-                        alt="Producto 3">
-                    <h2>Producto 3</h2>
-                    <p>Descripción del producto 3</p>
-                    <p>$30.00</p>
-                    <button class="btn"
-                        @click="goToWhatsApp({ name: 'Producto 3', description: 'Descripción del producto 3', price: '$30.00' })">Pedir</button>
-                </div>
-
-            </div>
-            <h2>Accesorios</h2>
-            <div class="product-list" v-if="true">
-                <div class="product-item" v-if="true">
-                    <img src="https://coffective.com/wp-content/uploads/2018/06/default-featured-image.png.jpg"
-                        alt="Producto 1">
-                    <h2>Producto 1</h2>
-                    <p>Descripción del producto 1</p>
-                    <p>$10.00</p>
-                    <button class="btn"
-                        @click="goToWhatsApp({ name: 'Producto 1', description: 'Descripción del producto 1', price: '$10.00' })">Pedir</button>
-                </div>
-                <div class="product-item">
-                    <img src="https://coffective.com/wp-content/uploads/2018/06/default-featured-image.png.jpg"
-                        alt="Producto 2">
-                    <h2>Producto 2</h2>
-                    <p>Descripción del producto 2</p>
-                    <p>$20.00</p>
-                    <button class="btn"
-                        @click="goToWhatsApp({ name: 'Producto 2', description: 'Descripción del producto 2', price: '$20.00' })">Pedir</button>
-                </div>
-                <div class="product-item">
-                    <img src="https://coffective.com/wp-content/uploads/2018/06/default-featured-image.png.jpg"
-                        alt="Producto 3">
-                    <h2>Producto 3</h2>
-                    <p>Descripción del producto 3</p>
-                    <p>$30.00</p>
-                    <button class="btn"
-                        @click="goToWhatsApp({ name: 'Producto 3', description: 'Descripción del producto 3', price: '$30.00' })">Pedir</button>
-                </div>
-
-            </div>
-        </main>
-        <Modal :show="showModal" @close="closeImageModal">
-            <img :src="selectedImage" alt="Imagen seleccionada" />
-        </Modal>
-    </div>
-    <footer>
-        <p>&copy; 2025 World of Varieties.</p>
-    </footer>
+  <div class="view">
+    <Navbar />
+    <main>
+      <h1>Catálogo</h1>
+      <h2>Ramos de flores</h2>
+      <div class="product-list" v-if="true">
+        <Card
+          v-for="(product, index) in products_flowers"
+          :key="index"
+          :product="product"
+          @click-image="openImageModal"
+          @order-product="goToWhatsApp"
+        />
+      </div>
+      <h2>Arreglos Personalizados</h2>
+      <div class="product-list" v-if="true">
+        <Card
+          v-for="(product, index) in custom_arragements"
+          :key="index"
+          :product="product"
+          @click-image="openImageModal"
+          @order-product="goToWhatsApp"
+        />
+      </div>
+      <h2>Hotwheels</h2>
+      <div class="product-list" v-if="true">
+        <Card
+          v-for="(product, index) in hotwheels"
+          :key="index"
+          :product="product"
+          @click-image="openImageModal"
+          @order-product="goToWhatsApp"
+        />
+      </div>
+    </main>
+    <Modal :show="showModal" @close="closeImageModal">
+      <img :src="selectedImage" alt="Imagen seleccionada" />
+    </Modal>
+  </div>
+  <Footer />
 </template>
 
 <style scoped>
-.view {
-    background-color: rgb(255, 255, 255);
-}
-
-.navbar {
-    background-color: #ffffff;
-    padding: 1rem;
-    position: sticky;
-    top: 0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 10px;
-
-}
-
-.navbar>ul {
-    font-family: 'Lobster', cursive;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    gap: 1rem;
-    font-size: 26px;
-    font-weight: 800;
-    letter-spacing: 1px;
-}
-
-.navbar>ul:hover {
-    opacity: 0.8;
-}
-
-
-
-.navbar>ul>li>a {
-    color: rgb(0, 0, 0);
-    text-decoration: none;
-    background: linear-gradient(90deg, rgb(255, 0, 242) 0%, rgb(0, 14, 86) 35%, rgb(0, 251, 255) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    color: transparent;
-    transition: all .6s ease-in-out;
-}
-
-.navbar>ul>li>a:hover {
-    text-decoration: underline;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    color: transparent;
-    text-shadow: 1px 1px 2px rgba(255, 0, 225, 0.385);
-
-}
-
 main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
 }
 
 main h1 {
-    text-transform: uppercase;
-    font-weight: 800;
-    background: linear-gradient(90deg, rgb(6, 0, 122) 0%, rgb(0, 203, 190) 35%, rgb(255, 0, 230) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    color: transparent;
-    text-shadow: 1px 1px 2px rgba(251, 0, 205, 0.5);
-    margin: 0;
+  text-transform: uppercase;
+  font-weight: 800;
+  background: linear-gradient(
+    90deg,
+    rgb(6, 0, 122) 0%,
+    rgb(0, 203, 190) 35%,
+    rgb(255, 0, 230) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 1px 1px 2px rgba(251, 0, 205, 0.5);
+  margin: 0;
 }
 
-main>h2 {
-    text-transform: uppercase;
-    text-align: left;
-    width: 100%;
-    padding-left: 10px;
-    font-weight: 800;
-    font-size: 22px;
-    background: linear-gradient(90deg, rgb(204, 34, 170) 0%, rgb(255, 0, 183) 35%, rgb(0, 0, 0) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    color: transparent;
-    text-shadow: 1px 1px 2px rgba(255, 0, 225, 0.574);
-    letter-spacing: 1px;
+main > h2 {
+  text-transform: uppercase;
+  text-align: left;
+  width: 100%;
+  padding-left: 10px;
+  font-weight: 800;
+  font-size: 22px;
+  background: linear-gradient(90deg, rgb(204, 34, 170) 0%, rgb(255, 0, 183) 35%, rgb(0, 0, 0) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 1px 1px 2px rgba(255, 0, 225, 0.574);
+  letter-spacing: 1px;
 }
 
 .product-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    justify-items: center;
-    gap: 2rem;
-    width: 100%;
-    padding: 20px;
-    box-sizing: border-box;
-}
-
-.product-item {
-    border: 1px solid #6b6b6b1d;
-    padding: 10px;
-    width: 100%;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #ff9cef19;
-    color: #0f004fa7;
-    max-width: 400px;
-}
-
-.product-item img {
-    width: 100%;
-    height: auto;
-    max-height: 300px;
-    border-radius: 10px;
-    object-fit: cover;
-}
-
-.btn {
-    background-color: #ff00d4;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    font-weight: 800;
-    text-transform: uppercase;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  justify-items: center;
+  gap: 2rem;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .modal img {
-    max-width: 100%;
-    max-height: 80vh;
-    border-radius: 8px;
-}
-
-footer {
-    background-color: #ffffff;
-    text-align: center;
-    padding: 15px;
-    color: #ff00d4;
-    font-weight: 600;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 18px;
+  max-width: 100%;
+  max-height: 80vh;
+  border-radius: 8px;
 }
 
 @media (max-width: 600px) {
-    .product-list {
-        justify-content: center;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    }
+  .product-list {
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
 
-    .product-item {
-        width: 100%;
-    }
+  .product-item {
+    width: 100%;
+  }
 
-    .modal img {
-        max-height: 60vh;
-    }
+  .modal img {
+    max-height: 60vh;
+  }
 }
 
 @media (min-width: 601px) and (max-width: 900px) {
-    .product-list {
-        justify-content: center;
-        padding: 10px;
-    }
+  .product-list {
+    justify-content: center;
+    padding: 10px;
+  }
 
-    .product-item {
-        width: 100%;
-    }
+  .product-item {
+    width: 100%;
+  }
 
-    .modal img {
-        max-height: 70vh;
-    }
+  .modal img {
+    max-height: 70vh;
+  }
 }
 
 @media (min-width: 901px) {
-    .product-list {
-        justify-content: center;
-    }
+  .product-list {
+    justify-content: center;
+  }
 }
 </style>
