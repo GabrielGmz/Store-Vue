@@ -182,6 +182,7 @@ const products_flowers = ref([
 <template>
   <div class="view">
     <Navbar />
+    <p>Entregas solamente para el departamento de <strong>San Miguel, El Salvador!</strong></p>
     <main>
       <h1>Catálogo</h1>
       <h2>Ramos de flores</h2>
@@ -204,6 +205,40 @@ const products_flowers = ref([
 </template>
 
 <style scoped>
+.view > p {
+  text-align: left;
+  color: rgb(158, 0, 108);
+  padding: 10px;
+  margin: 0;
+  font-weight: 600;
+  text-transform: uppercase;
+  width: 100%;
+  font-size: 24px;
+  letter-spacing: 1px;
+  animation: scrollY 15s linear infinite;
+}
+
+@keyframes scrollY {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+
 main {
   display: flex;
   flex-direction: column;
@@ -291,6 +326,12 @@ main > h2 {
     font-size: 20px;
     padding: 20px;
   }
+
+  .view > p {
+    font-size: 11px;
+    padding: 5px;
+    text-align: center;
+  }
 }
 
 @media (min-width: 601px) and (max-width: 900px) {
@@ -309,6 +350,12 @@ main > h2 {
   .soon {
     font-size: 22px;
     padding: 25px;
+  }
+
+  .view > p {
+    font-size: 18px;
+    padding: 8px;
+    text-align: center;
   }
 }
 
