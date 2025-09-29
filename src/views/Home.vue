@@ -9,6 +9,17 @@ import Footer from '@/components/Footer.vue'
 const showModal = ref(false)
 const selectedImage = ref(null)
 
+// nuevo: modal para el formulario
+const showFormModal = ref(false)
+const selectedProduct = ref(null)
+
+// datos del formulario
+const items = ref({
+  mariposas: 0,
+  coronas: 0,
+  dedicatoria: 'Sin dedicatoria',
+})
+
 const openImageModal = (src) => {
   selectedImage.value = src
   showModal.value = true
@@ -19,35 +30,65 @@ const closeImageModal = () => {
   selectedImage.value = null
 }
 
-const goToWhatsApp = (product) => {
+// abrir formulario desde Card
+const openOrderForm = (product) => {
+  selectedProduct.value = product
+  showFormModal.value = true
+}
+
+// cerrar formulario
+const closeOrderForm = () => {
+  showFormModal.value = false
+  selectedProduct.value = null
+  items.value = { mariposas: 0, coronas: 0, dedicatoria: 'Sin dedicatoria' }
+}
+
+// enviar a WhatsApp con los extras
+const submitOrder = () => {
+  if (!selectedProduct.value) return
+
   const phoneNumber = '+50376289891'
   const message =
-    `Hola, estoy interesado en el siguiente producto de su catálogo:\n\n` +
-    `Nombre: ${product.name}\n` +
-    `Descripción: ${product.description}\n` +
-    `Precio: ${product.price}\n\n` +
+    `Hola, quiero ordenar el siguiente producto de su catálogo:\n\n` +
+    `${selectedImage.value ? `Imagen: ${selectedImage.value}\n` : ''}` +
+    `Producto: ${selectedProduct.value.name}\n` +
+    `Precio: ${selectedProduct.value.price}\n\n` +
+    `🛍️Extras:\n` +
+    `🦋Mariposas: ${items.value.mariposas}\n` +
+    `👑Coronas: ${items.value.coronas}\n` +
+    `📜Dedicatoria: ${items.value.dedicatoria}\n\n` +
+    `💰Total: ${(() => {
+      const base = parseFloat(selectedProduct.value.price.replace('$', '')) || 0
+      const mariposas = Number(items.value.mariposas) || 0
+      const coronas = Number(items.value.coronas) || 0
+      const total = base + mariposas * 0.5 + coronas * 3.5
+      return `$${total.toFixed(2)}`
+    })()}\n\n` +
     `¿Podría darme más información?`
+
   const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`
   window.open(url, '_blank')
+
+  closeOrderForm()
 }
 
 const products_flowers = ref([
   {
-    name: 'Ramo Pink',
-    description: 'Descripción del ramo pink',
-    price: '$10.00',
+    name: 'Ramo de Rosas',
+    description: 'Ramo Grande - 7 Rosas con Mariposa',
+    price: '$16.00',
     image: '/Productos/ramo1.jpg',
   },
   {
-    name: 'Ramo Rosa',
-    description: 'Descripción del ramo rosa',
-    price: '$20.00',
+    name: 'Ramo de Tulipanes',
+    description: '5 Tulipanes con Mariposa',
+    price: '$8.00',
     image: '/Productos/ramo2.jpg',
   },
   {
-    name: 'Ramo Blanco',
-    description: 'Descripción del ramo blanco',
-    price: '$30.00',
+    name: 'Ramito de Rosas',
+    description: '2 Rosas',
+    price: '$6.00',
     image: '/Productos/ramo3.jpg',
   },
   {
@@ -165,15 +206,15 @@ const products_flowers = ref([
     image: '/Productos/ramo22.jpg',
   },
   {
-    name: 'Ramo Cobre',
-    description: 'Descripción del ramo cobre',
-    price: '$230.00',
+    name: 'Girasol',
+    description: '1 Girasol con Mariposa',
+    price: '$7.00',
     image: '/Productos/ramo23.jpg',
   },
   {
-    name: 'Ramo Marfil',
-    description: 'Descripción del ramo marfil',
-    price: '$240.00',
+    name: 'Ramo de Rosas',
+    description: 'Ramo Mediano - 6 Rosas con Mariposa',
+    price: '$10.00',
     image: '/Productos/ramo24.jpg',
   },
 ])
@@ -186,19 +227,57 @@ const products_flowers = ref([
     <main>
       <h1>Catálogo</h1>
       <h2>Ramos de flores</h2>
-      <div class="product-list" v-if="true">
+      <div class="product-list">
         <Card
           v-for="(product, index) in products_flowers"
           :key="index"
           :product="product"
           @click-image="openImageModal"
-          @order-product="goToWhatsApp"
+          @open-form="openOrderForm"
         />
       </div>
     </main>
     <div class="soon">Próximamente <span>más productos</span></div>
+
+    <!-- Modal de imagen -->
     <Modal :show="showModal" @close="closeImageModal">
       <img :src="selectedImage" alt="Imagen seleccionada" />
+    </Modal>
+
+    <!-- Modal de formulario -->
+    <Modal :show="showFormModal" @close="closeOrderForm">
+      <div class="form-container" v-if="selectedProduct">
+        <h2>Ordenar {{ selectedProduct.name }}</h2>
+        <form @submit.prevent="submitOrder">
+          <label for="mariposas">Mariposas: </label>
+          <input type="number" id="mariposas" min="0" v-model="items.mariposas" />
+
+          <label for="coronas">Coronas: </label>
+          <input type="number" id="coronas" min="0" v-model="items.coronas" />
+
+          <label for="dedicatoria">Dedicatoria: </label>
+          <select id="dedicatoria" v-model="items.dedicatoria">
+            <option value="Sin dedicatoria">Sin dedicatoria</option>
+            <option value="Con dedicatoria">Con dedicatoria</option>
+          </select>
+
+          <label for="total">Total: </label>
+          <span id="total">
+            {{
+              (() => {
+                if (!selectedProduct) return '$0.00'
+                const base = parseFloat(selectedProduct.price.replace('$', '')) || 0
+                const mariposas = Number(items.mariposas) || 0
+                const coronas = Number(items.coronas) || 0
+                const total = base + mariposas * 0.5 + coronas * 3.5
+                return `$${total.toFixed(2)}`
+              })()
+            }}
+          </span>
+
+          <button type="submit" class="btn">Enviar por WhatsApp</button>
+        </form>
+      </div>
     </Modal>
   </div>
   <Footer />
@@ -206,7 +285,7 @@ const products_flowers = ref([
 
 <style scoped>
 .view > p {
-  text-align: left;
+  text-align: center;
   color: rgb(158, 0, 108);
   padding: 10px;
   margin: 0;
@@ -216,6 +295,7 @@ const products_flowers = ref([
   font-size: 24px;
   letter-spacing: 1px;
   animation: moverY 0.8s infinite;
+  box-sizing: border-box;
 }
 
 @keyframes moverY {
@@ -272,7 +352,7 @@ main > h2 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   justify-items: center;
-  gap: 2rem;
+  gap: 50px;
   width: 100%;
   padding: 20px;
   box-sizing: border-box;
@@ -280,12 +360,11 @@ main > h2 {
 
 .modal img {
   max-width: 100%;
-  max-height: 80vh;
+  height: 80vh;
   border-radius: 8px;
 }
 
 .soon {
-  text-align: center;
   font-size: 24px;
   font-weight: bold;
   padding: 30px;
@@ -293,8 +372,73 @@ main > h2 {
   border: #ff33da 2px dashed;
   border-radius: 8px;
   width: fit-content;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 20px auto;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  max-width: 700px;
+  margin-top: 15px;
+  padding: 10px;
+  justify-content: center;
+}
+
+form label {
+  font-weight: 600;
+  color: #0f004fa7;
+}
+form input,
+form select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+select > option {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  background-color: rgb(255, 255, 255);
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid #d400ff;
+  border-radius: 8px;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+  justify-content: center;
+  gap: 10px;
+  max-height: 80vh;
+}
+
+.form-container > h2 {
+  width: 100%;
+  text-align: center;
+  max-width: 200px;
+  color: #ff00d4;
+  margin: 0;
+}
+
+.btn {
+  background-color: #ff00d4;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-top: 15px;
 }
 
 @media (max-width: 600px) {
