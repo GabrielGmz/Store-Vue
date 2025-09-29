@@ -32,7 +32,7 @@ defineEmits(['click-image', 'open-form'])
   width: 100%;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  background-color: #ff9cef19;
+  background-color: #ffffff;
   color: #0f004fa7;
   max-width: 400px;
   height: 95%;

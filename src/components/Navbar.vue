@@ -8,7 +8,7 @@
 
 <style scoped>
 .navbar {
-  background-color: #ffffff;
+  background-color: rgb(255, 240, 243);
   padding: 1rem;
   position: sticky;
   top: 0;

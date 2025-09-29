@@ -11,6 +11,6 @@ body {
   margin: 0;
   font-family: 'Kanit', sans-serif;
   box-sizing: border-box;
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(255, 240, 243);
 }
 </style>
