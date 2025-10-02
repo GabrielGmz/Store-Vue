@@ -61,14 +61,14 @@ defineEmits(['click-image', 'open-form'])
 
 .price {
   font-size: 1.2em;
-  color: #ff00d4;
+  color: #ff49e1;
   font-weight: bold;
   margin: 10px 0;
   align-items: center;
 }
 
 .bt-details {
-  background-color: #ff00d4;
+  background-color: #ff5ce4;
   color: white;
   border: none;
   padding: 10px 20px;

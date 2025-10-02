@@ -11,6 +11,6 @@ body {
   margin: 0;
   font-family: 'Kanit', sans-serif;
   box-sizing: border-box;
-  background-color: rgb(255, 240, 243);
+  background: linear-gradient(90deg, #c9a7eb 0%, #f8c8dc 50%, #a7d8f0 100%);
 }
 </style>

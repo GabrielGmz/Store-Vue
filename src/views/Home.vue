@@ -287,7 +287,7 @@ const products_flowers = ref([
 .view > p {
   text-align: center;
   color: rgb(158, 0, 108);
-  background-color: rgb(255, 240, 243);
+  background: transparent;
   padding: 10px;
   margin: 0;
   font-weight: 600;
@@ -314,7 +314,7 @@ main {
   flex-direction: column;
   align-items: center;
   padding: 10px;
-  background-color: rgb(255, 240, 243);
+  background: linear-gradient(90deg, #c9a7eb 0%, #f8c8dc 50%, #a7d8f0 100%);
 }
 
 main h1 {
