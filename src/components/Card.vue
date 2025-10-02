@@ -44,7 +44,7 @@ defineEmits(['click-image', 'open-form'])
 .product-item img {
   width: 100%;
   height: 100%;
-  max-height: 250px;
+  max-height: 400px;
   border-radius: 10px;
   object-fit: cover;
 }

@@ -75,7 +75,7 @@ const submitOrder = () => {
 const products_flowers = ref([
   {
     name: 'Ramo de Rosas',
-    description: 'Ramo Grande - 7 Rosas con Mariposa',
+    description: '7 Rosas con Mariposa',
     price: '$16.00',
     image: '/Productos/ramo1.jpg',
   },
@@ -92,75 +92,75 @@ const products_flowers = ref([
     image: '/Productos/ramo3.jpg',
   },
   {
-    name: 'Ramo Multicolor',
+    name: 'Ramo Desconocido',
     description: 'Descripción del ramo multicolor',
-    price: '$40.00',
+    price: '$12.00',
     image: '/Productos/ramo4.jpg',
   },
   {
-    name: 'Ramo Naranja',
+    name: 'Flor Desconocida',
     description: 'Descripción del ramo naranja',
-    price: '$50.00',
+    price: '$10.00',
     image: '/Productos/ramo5.jpg',
   },
   {
-    name: 'Ramo Azul',
-    description: 'Descripción del ramo azul',
-    price: '$60.00',
+    name: 'Ramo de Rosas',
+    description: '7 Rosas con Mariposa',
+    price: '$16.00',
     image: '/Productos/ramo6.jpg',
   },
   {
-    name: 'Ramo Amarillo',
-    description: 'Descripción del ramo amarillo',
-    price: '$70.00',
+    name: 'Ramo de Rosas',
+    description: '6 Rosas',
+    price: '$15.00',
     image: '/Productos/ramo7.jpg',
   },
   {
-    name: 'Ramo Rojo',
-    description: 'Descripción del ramo rojo',
-    price: '$80.00',
+    name: 'Ramo de Rosas',
+    description: '8 Rosas',
+    price: '$14.00',
     image: '/Productos/ramo8.jpg',
   },
   {
-    name: 'Ramo Morado',
-    description: 'Descripción del ramo morado',
-    price: '$90.00',
+    name: 'Ramo - Princesa y el Sapo',
+    description: 'Ramo Grande - 17 Rosas con Mariposa y Corona',
+    price: '$36.00',
     image: '/Productos/ramo9.jpg',
   },
   {
-    name: 'Ramo Verde',
-    description: 'Descripción del ramo verde',
-    price: '$100.00',
+    name: 'Ramo de Rosas',
+    description: '7 Rosas con Mariposa y Perlas',
+    price: '$18.00',
     image: '/Productos/ramo10.jpg',
   },
   {
-    name: 'Ramo Celeste',
-    description: 'Descripción del ramo celeste',
-    price: '$110.00',
+    name: 'Ramo de Rosas',
+    description: '6 Rosas',
+    price: '$14.00',
     image: '/Productos/ramo11.jpg',
   },
   {
-    name: 'Ramo Fucsia',
-    description: 'Descripción del ramo fucsia',
-    price: '$120.00',
+    name: 'Ramo de Rosas',
+    description: '18 Rosas Blancas',
+    price: '$18.00',
     image: '/Productos/ramo12.jpg',
   },
   {
-    name: 'Ramo Lavanda',
-    description: 'Descripción del ramo lavanda',
-    price: '$130.00',
+    name: 'Rosa',
+    description: 'Individual - Rosa Blanca',
+    price: '$3.50',
     image: '/Productos/ramo13.jpg',
   },
   {
-    name: 'Ramo Turquesa',
-    description: 'Descripción del ramo turquesa',
-    price: '$140.00',
+    name: 'Rosa',
+    description: 'Individual - Rosa Rosada',
+    price: '$4.00',
     image: '/Productos/ramo14.jpg',
   },
   {
-    name: 'Ramo Coral',
-    description: 'Descripción del ramo coral',
-    price: '$150.00',
+    name: 'Rosa',
+    description: 'Individual - Rosa Celeste',
+    price: '$3.50',
     image: '/Productos/ramo15.jpg',
   },
   {
@@ -216,6 +216,66 @@ const products_flowers = ref([
     description: 'Ramo Mediano - 6 Rosas con Mariposa',
     price: '$10.00',
     image: '/Productos/ramo24.jpg',
+  },
+  {
+    name: 'Ramo de Rosas',
+    description: 'Ramo Pequeño - 4 Rosas con Mariposa',
+    price: '$8.00',
+    image: '/Productos/ramo25.jpg',
+  },
+  {
+    name: 'Ramo de Rosas',
+    description: 'Ramo Extra Grande - 10 Rosas con Mariposa',
+    price: '$20.00',
+    image: '/Productos/ramo26.jpg',
+  },
+  {
+    name: 'Ramo de Rosas',
+    description: 'Ramo Gigante - 12 Rosas con Mariposa',
+    price: '$25.00',
+    image: '/Productos/ramo27.jpg',
+  },
+  {
+    name: 'Ramo de Rosas',
+    description: 'Ramo Premium - 15 Rosas con Mariposa',
+    price: '$30.00',
+    image: '/Productos/ramo28.jpg',
+  },
+  {
+    name: 'Ramo de Rosas',
+    description: 'Ramo Deluxe - 20 Rosas con Mariposa',
+    price: '$35.00',
+    image: '/Productos/ramo29.jpg',
+  },
+  {
+    name: 'Ramo de Rosas',
+    description: 'Ramo Supremo - 25 Rosas con Mariposa',
+    price: '$45.00',
+    image: '/Productos/ramo30.jpg',
+  },
+  {
+    name: 'Ramo de Rosas',
+    description: 'Ramo Exclusivo - 30 Rosas con Mariposa',
+    price: '$55.00',
+    image: '/Productos/ramo31.jpg',
+  },
+  {
+    name: 'Ramo de Rosas',
+    description: 'Ramo de Lujo - 50 Rosas con Mariposa',
+    price: '$75.00',
+    image: '/Productos/ramo32.jpg',
+  },
+  {
+    name: 'Ramo de Rosas',
+    description: 'Ramo de Gala - 100 Rosas con Mariposa',
+    price: '$150.00',
+    image: '/Productos/ramo33.jpg',
+  },
+  {
+    name: 'Ramo de Rosas',
+    description: 'Ramo de Celebración - 200 Rosas con Mariposa',
+    price: '$300.00',
+    image: '/Productos/ramo34.jpg',
   },
 ])
 </script>
@@ -275,6 +335,15 @@ const products_flowers = ref([
             }}
           </span>
 
+          <p class="note">
+            Nota:
+            <strong
+              >Si en el producto dice "con mariposa o corona", deje los valores en 0, pero si no
+              incluye estos elementos, debe ingresar la cantidad deseada para ver la diferencia de
+              precio.</strong
+            >
+          </p>
+
           <button type="submit" class="btn">Enviar por WhatsApp</button>
         </form>
       </div>
@@ -314,7 +383,7 @@ main {
   flex-direction: column;
   align-items: center;
   padding: 10px;
-  background: linear-gradient(90deg, #c9a7eb 0%, #f8c8dc 50%, #a7d8f0 100%);
+  background: linear-gradient(90deg, #ebd7ff 0%, #ffe3ef 50%, #dcf3ff 100%);
 }
 
 main h1 {
@@ -370,8 +439,8 @@ main > h2 {
   font-size: 24px;
   font-weight: bold;
   padding: 30px;
-  color: #ff76ba;
-  border: #ff33da 2px dashed;
+  color: #460023;
+  border: #270020 2px dashed;
   border-radius: 8px;
   width: fit-content;
   margin: 20px auto;
@@ -426,13 +495,21 @@ select > option {
   width: 100%;
   text-align: center;
   max-width: 200px;
-  color: #ff00d4;
+  color: #ff84eb;
   margin: 0;
 }
 
+form .note {
+  font-size: 14px;
+  color: #32022f;
+  margin: 0;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
 .btn {
-  background-color: #ff00d4;
-  color: white;
+  background-color: #ff63e5;
+  color: rgb(65, 0, 48);
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
@@ -454,7 +531,7 @@ select > option {
   }
 
   .modal img {
-    max-height: 60vh;
+    max-height: 80vh;
   }
 
   .soon {
